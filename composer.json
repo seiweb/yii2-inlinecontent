@@ -1,0 +1,33 @@
+{
+    "name": "seiweb/yii2-inlinecontent",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+
+    "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "*",
+        "shifrin/yii2-noty": "1.0.*",
+        "vova07/yii2-imperavi-widget": "*",
+        "kartik-v/yii2-widgets": "~3.4.0",
+        "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-krajee-base": "@dev",
+        "kartik-v/yii2-widget-activeform": "@dev",
+        "kartik-v/yii2-editable": "~1.7.5",
+        "kartik-v/yii2-sortable": "~1.2.0",
+        "kartik-v/yii2-dialog": "~1.0.1"
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "codeception/specify": "*",
+        "codeception/verify": "*",
+        "mikey179/vfsStream": "1.3.*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "seiweb\\inlinecontent\\": ""
+        }
+    },
+    "extra": {
+        "bootstrap": "seiweb\\inlinecontent\\Bootstrap"
+    }
+}

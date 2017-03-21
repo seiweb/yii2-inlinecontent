@@ -1,0 +1,88 @@
+span.rapid_file,
+a.rapid_file {
+    background: url(images/default.icon.gif) center left no-repeat;
+    padding: 2px 2px 2px 20px;
+    display: table-cell;
+    vertical-align: middle;
+    white-space: normal;
+}
+
+span.doc, span.docx, span.rtf, a.doc, a.docx, a.rtf {
+    background: url(images/doc.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.ai {
+    background: url(images/ai.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.avi {
+    background: url(images/avi.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.bmp {
+    background: url(images/bmp.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.cs {
+    background: url(images/cs.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.exe {
+    background: url(images/exe.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.fla {
+    background: url(images/flspan.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.gif {
+    background: url(images/gif.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.jpg {
+    background: url(images/jpg.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.js {
+    background: url(images/js.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.ppt {
+    background: url(images/ppt.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.txt {
+    background: url(images/txt.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.pdf, a.pdf {
+    background: url(images/pdf.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.xls, span.xlsx {
+    background: url(images/xls.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.zip, span.rar {
+    background: url(images/zip.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
+
+span.folder {
+    background: url(images/default.icon.gif) center left no-repeat !important;
+    padding: 2px 2px 2px 20px;
+}
