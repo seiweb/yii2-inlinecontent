@@ -23,7 +23,10 @@ echo \seiweb\unitegallery\UniteGallery::widget([
         'lightbox_type'=>'compact',
         'lightbox_arrows_position'=>'inside',
         'lightbox_slider_image_border'=>false,
-        'lightbox_arrows_inside_alwayson'=>true
+        'lightbox_arrows_inside_alwayson'=>true,
+        'tile_enable_textpanel'=>true,
+        'tile_textpanel_source'=>'title',
+        'lightbox_textpanel_enable_description'=>true
     ]
 ]);
 
@@ -36,7 +39,7 @@ echo \seiweb\unitegallery\UniteGallery::widget([
 
     foreach ($model->images as $img) { ?>
         <?php
-        echo Html::img($img->getFitUrl(640, 480), ['data-image' => $img->getFullSizeUrl()]);
+        echo Html::img($img->getFitUrl(640, 480), ['data-image' => $img->getFullSizeUrl(),'alt'=>$img->title,'data-description'=>$img->description]);
         ?>
     <?php } ?>
 
