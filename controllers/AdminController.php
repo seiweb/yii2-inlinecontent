@@ -3,10 +3,9 @@
 namespace seiweb\inlinecontent\controllers;
 
 use kartik\dialog\DialogAsset;
-use seiweb\inlinecontent\assets\BlockUIAsset;
+use seiweb\ext\BlockUIAsset;
 use seiweb\inlinecontent\models\Page;
 use seiweb\inlinecontent\models\PageSection;
-use seiweb\inlinecontent\modules\wysiwyg\models\PageSectionWysiwig;
 use seiweb\sortable\actions\SortableGridAction;
 use shifrin\noty\NotyAsset;
 use Yii;
