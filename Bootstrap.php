@@ -12,6 +12,8 @@ class Bootstrap implements BootstrapInterface
     /** @inheritdoc */
     public function bootstrap($app)
     {
+        \yii\helpers\Inflector::$transliterator = 'Russian-Latin/BGN; NFKD';
+
         if($app instanceof ConsoleApplication) return;
 
         if ($app->hasModule('inlinecontent') && ($module = $app->getModule('inlinecontent')) instanceof FrontendModule) {
