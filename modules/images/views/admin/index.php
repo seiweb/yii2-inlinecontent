@@ -1,3 +1,3 @@
 <?php
-	echo \seiweb\yii2images\widgets\AdminImagesWidget::widget(['model' => $sectionModel,]);
-?>
+
+echo \seiweb\image\widgets\AdminImages::widget(['model' => $sectionModel,]);

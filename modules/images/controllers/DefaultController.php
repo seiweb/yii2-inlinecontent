@@ -24,11 +24,15 @@ class DefaultController extends InternalSubModuleController
      */
 	public function actionIndex($section_id)
 	{
-	    $s = PageSection::findOne($section_id);
+	    $sectionModel = PageSection::findOne($section_id);
+
+	    $sectionModel->attachBehavior(null, [
+            'class' => \seiweb\image\behaviors\ImageBehavior::className(),
+            'modelKey' => \seiweb\inlinecontent\models\PageSection::className()
+        ]);
 
 		return $this->render('index', [
-			'section_id' => $section_id,
-            'images'=>Image::getModelImages(PageSection::findOne($section_id))->all(),
+			'model' => $sectionModel,
 		]);
 	}
 

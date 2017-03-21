@@ -30,9 +30,13 @@ class Module extends InlineModule
 	 */
 	public function deleteSection($section_id)
 	{
-		// TODO: Implement deleteSection() method.
-		foreach(\seiweb\yii2images\models\Image::getModelImages(new PageSection(['id'=>$section_id]))->all() as $img)
-			$img->delete();
+
+        $sectionModel = new PageSection(['id'=>$section_id]);
+        $sectionModel->attachBehavior(null, [
+            'class' => \seiweb\image\behaviors\ImageBehavior::className(),
+            'modelKey' => \seiweb\inlinecontent\models\PageSection::className()
+        ]);
+
 	}
 
 	/**

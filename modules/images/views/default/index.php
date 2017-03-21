@@ -13,7 +13,7 @@ use yii\helpers\Html;
 
 ?>
 <?php
-
+$section_id =$model->id;
 
 echo \seiweb\unitegallery\UniteGallery::widget([
     'target' => '#gallery'.$section_id,
@@ -33,9 +33,10 @@ echo \seiweb\unitegallery\UniteGallery::widget([
 <div id="gallery<?= $section_id ?>" style="display:none;">
 
     <?php
-    foreach ($images as $img) { ?>
+
+    foreach ($model->images as $img) { ?>
         <?php
-        echo Html::img($img->getUrl(640, 480, 'width'), ['data-image' => $img->getUrl(1024, 768, 'height')]);
+        echo Html::img($img->getFitUrl(640, 480), ['data-image' => $img->getFullSizeUrl()]);
         ?>
     <?php } ?>
 

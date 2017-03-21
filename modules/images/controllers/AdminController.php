@@ -8,11 +8,8 @@
 
 namespace seiweb\inlinecontent\modules\images\controllers;
 
-
 use seiweb\inlinecontent\components\InternalSubModuleController;
-use seiweb\inlinecontent\components\SubModuleController;
 use seiweb\inlinecontent\models\PageSection;
-use yii\base\Controller;
 
 class AdminController extends InternalSubModuleController
 {
@@ -20,7 +17,12 @@ class AdminController extends InternalSubModuleController
 	{
 		$f = \Yii::$app->request->post('f',null);
 		$sectionModel = PageSection::findOne($section_id);
-		return  $this->render('index',['f'=>$f,'sectionModel'=>$sectionModel]);
+        $sectionModel->attachBehavior(null, [
+            'class' => \seiweb\image\behaviors\ImageBehavior::className(),
+            'modelKey' => \seiweb\inlinecontent\models\PageSection::className()
+        ]);
+
+        return  $this->render('index',['sectionModel'=>$sectionModel]);
 	}
 
 
