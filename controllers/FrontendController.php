@@ -20,7 +20,17 @@ class FrontendController extends Controller
         } else
             $page = Page::find()->where(['full_slug' => $full_slug])->one();
 
+        /**
+         * Если нету ни одной секции, подразумеваем редирект на первого потомка.
+         */
+        if($page->sections == []);
+        {
+            $child = $page->children(1)->one();
+            $this->redirect($child->full_slug,301);
+        }
+
         $parents = $page->parents()->andWhere('depth>0')->all();
+
 
 
         if ($page == null)
