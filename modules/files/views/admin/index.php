@@ -11,7 +11,7 @@ use kartik\dialog\DialogAsset;
 
 
 \seiweb\inlinecontent\modules\files\web\FilesAsset::register($this);
-\seiweb\ext\BlockUIAsset::register($this);
+
 
 $pjaxContainer = 'pjax_' . $sectionModel->id;
 

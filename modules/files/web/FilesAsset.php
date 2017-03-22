@@ -1,7 +1,6 @@
 <?php
 namespace seiweb\inlinecontent\modules\files\web;
 
-use yii\base\Exception;
 use yii\web\AssetBundle;
 
 /**
@@ -17,5 +16,8 @@ class FilesAsset extends AssetBundle
     public $js = [
         'script.js',
         'form_file_edit.js'
+    ];
+    public $depends = [
+        'seiweb\ext\BlockUIAsset',
     ];
 }
