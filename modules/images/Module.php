@@ -37,6 +37,7 @@ class Module extends InlineModule
             'modelKey' => \seiweb\inlinecontent\models\PageSection::className()
         ]);
 
+        $sectionModel->deleteAllFiles();
 	}
 
 	/**
