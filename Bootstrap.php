@@ -14,7 +14,7 @@ class Bootstrap implements BootstrapInterface
     {
         \yii\helpers\Inflector::$transliterator = 'Russian-Latin/BGN; NFKD';
 
-        if($app instanceof ConsoleApplication) return;
+        if ($app instanceof ConsoleApplication) return;
 
         if ($app->hasModule('inlinecontent') && ($module = $app->getModule('inlinecontent')) instanceof FrontendModule) {
             $module->pages = Page::find()->with('sections')->andWhere('depth>0')->orderBy('lft')->asArray()->all();
@@ -31,13 +31,20 @@ class Bootstrap implements BootstrapInterface
                     $subRules = $module->getUrlRules();
 
                     if (isset($subRules))
-                        foreach ($subRules as $subRule=>$action)
+                        foreach ($subRules as $subRule => $rule)
                             $app->urlManager->rules[] = new UrlRule([
-                                'pattern' => '/' . $page['full_slug']  . $subRule,
+                                'pattern' => '/' . $page['full_slug'] . $subRule,
                                 'route' => 'inlinecontent/frontend/view',
-                                'defaults' => ['full_slug' => $page['full_slug']]
+                                'defaults' => [
+                                    'full_slug' => $page['full_slug'],
+                                    $class => [
+                                        'swb_controller_class' => $rule['controller'],
+                                        'swb_action' => $rule['action'],
+                                    ]
+                                ]
                             ]);
 
+                    /*
                     if (isset($submenu))
                         foreach ($submenu as $submenuitem) {
                             if (isset($subRules))
@@ -54,7 +61,7 @@ class Bootstrap implements BootstrapInterface
                                     'defaults' => ['full_slug' => $page['full_slug']]
                                 ]);
                         }
-
+                    */
                 }
 
 

@@ -39,7 +39,7 @@ echo \seiweb\unitegallery\UniteGallery::widget([
 
     foreach ($model->images as $img) { ?>
         <?php
-        echo Html::img($img->getFitUrl(640, 480), ['data-image' => $img->getFullSizeUrl(),'alt'=>$img->title,'data-description'=>$img->description]);
+        echo Html::img($img->getFitUrl(180, 150), ['data-image' => $img->getFullSizeUrl(),'alt'=>$img->title,'data-description'=>$img->description]);
         ?>
     <?php } ?>
 

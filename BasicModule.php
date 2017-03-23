@@ -153,8 +153,20 @@ class BasicModule extends \yii\base\Module
         $data = [];
         foreach ($model as $item) {
             if ($controller = $this->findModuleController($item['module'])) {
+
+                //если в \Yii::$app->request->get() есть кастомный контроллер для этого модуля, ренерим его
+                if(key_exists($item['module'],$getParams)){
+                    $cont = \Yii::createObject($getParams[$item['module']]['swb_controller_class'], [$item['module'], $this]);
+                    $action = $cont->createAction($getParams[$item['module']]['swb_action']);
+                    
+                } else {
+                    $cont = \Yii::createObject($controller, [$item['module'], $this]);
+                    $action = $cont->createAction('index');
+                }
+
+/*
                 $cont = \Yii::createObject($controller, [$item['module'], $this]);
-                $action = $cont->createAction('index');
+                $action = $cont->createAction('index');*/
 
                 //дергаем экшн контроллера подмодуля, с параметрами
 
