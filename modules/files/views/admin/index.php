@@ -30,7 +30,7 @@ yii\bootstrap\Modal::end();
 
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title"><i class="fa fa-folder" aria-hidden="true"></i> Файлы 2.0 :: <?= $sectionModel->block ?>
+        <h3 class="box-title"><i class="fa fa-file-o" aria-hidden="true"></i> Файлы 2.0 :: <?= $sectionModel->block ?>
         </h3>
 
         <div class="box-tools pull-right">
@@ -200,8 +200,8 @@ JS;
                         'showRemove' => false,
                         'showCancel' => false,
                         'browseClass' => 'btn btn-primary btn-block',
-                        'browseIcon' => '<i class="fa fa-upload" aria-hidden="true"></i> ',
-                        'browseLabel' => 'загрузить файлы',
+                        'browseIcon' => '<i class="fa fa-file-o" aria-hidden="true"></i> ',
+                        'browseLabel' => 'Загрузить файлы',
 
                         'dragSettings' => [
                             'animation' => 200,
