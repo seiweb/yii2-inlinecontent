@@ -28,7 +28,7 @@ class Bootstrap implements BootstrapInterface
                     //\Yii::$app->setModule()
                     $marr = explode(':',$page['route']);
                     $class = $page['route'];
-                    $module_id = $page['route']::MODULE_ID;
+                    $module_id = md5($page['route'].$page['id']);
                     \Yii::$app->setModule($module_id,$class);
                     /** @var \yii\base\Module $m */
                     $m = \Yii::$app->getModule($module_id);

@@ -39,7 +39,7 @@ class FrontendModule extends BasicModule
             foreach ($page['sections'] as $item) {
 
                 if($page['route']!='') {
-                    $module = \Yii::$app->getModule($page['route']::MODULE_ID);
+                    $module = \Yii::$app->getModule(md5($page['route'].$page['id']));
                     //$module = \Yii::$app->getModule(str_replace('\\','_',$page['route']));
                     $module->page = $page;
                     $submenu = $module->getMenu();
