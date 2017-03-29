@@ -24,14 +24,8 @@ class GroupUrlRule extends \yii\web\GroupUrlRule
         $module = \Yii::$app->getModule($this->routePrefix);
         if($module!==null && isset($module::$counter) && $module::$counter>1) {
             $pathInfo = \Yii::$app->request->pathInfo;
-            \Yii::trace($pathInfo,'pi');
-            $fakeUrl = $this->prefix . '/' . implode('/', $params);
-            \Yii::trace($fakeUrl,'fu');
             if(strpos($pathInfo,$this->prefix)!==0) return false;
         }
-
-        $res = parent::createUrl($manager, $route, $params);
-        \Yii::trace($route.' - '.$res,__METHOD__);
-        return $res;
+        return parent::createUrl($manager, $route, $params);
     }
 }
