@@ -20,11 +20,7 @@ class FrontendController extends Controller
         } else
             $page = Page::find()->where(['full_slug' => $full_slug])->one();
 
-
-
         $parents = $page->parents()->andWhere('depth>0')->all();
-
-
 
         if ($page == null)
             throw new NotFoundHttpException('Такая страница не найдена');

@@ -37,16 +37,18 @@ class FrontendModule extends BasicModule
         foreach ($this->pages as $page) {
             $page['items'] = [];
             foreach ($page['sections'] as $item) {
-                $class = $item['module'];
-                $module = \Yii::$app->getModule($class);
-                $submenu = $module->getMenu();
-                if(isset($submenu))
-                    foreach ($submenu as $submenuitem)
-                    {
-                        $submenuitem['url'] = '/'. $page['full_slug'].'/'.$submenuitem['url'];
-                        $page['items'][] = $submenuitem;
-                    }
 
+                if($page['route']!='') {
+                    $module = \Yii::$app->getModule($page['route']::MODULE_ID);
+                    //$module = \Yii::$app->getModule(str_replace('\\','_',$page['route']));
+                    $module->page = $page;
+                    $submenu = $module->getMenu();
+                    if (isset($submenu))
+                        foreach ($submenu as $submenuitem) {
+                            $submenuitem['url'] = '/' . $page['full_slug'] . '/' . $submenuitem['url'];
+                            $page['items'][] = $submenuitem;
+                        }
+                }
             }
             $pages[] = $page;
         }

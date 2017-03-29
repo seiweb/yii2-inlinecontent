@@ -23,43 +23,52 @@ class Bootstrap implements BootstrapInterface
 
             foreach ($module->pages as $page) {
 
-                if($page['route']!='')
-                {
+                if ($page['route'] != '') {
                     //инстанцируем класс и подключаем рулесы
-
+                    //\Yii::$app->setModule()
+                    $marr = explode(':',$page['route']);
+                    $class = $page['route'];
+                    $module_id = $page['route']::MODULE_ID;
+                    \Yii::$app->setModule($module_id,$class);
                     /** @var \yii\base\Module $m */
-                    $m = \Yii::$app->getModule($page['route']);
+                    $m = \Yii::$app->getModule($module_id);
+                    $m->params = $page['route_params'];
+                    $m->page = $page;
 
-                    if($m==null)
-                        throw new ConfigurationException('Не правильно задан модуль');
+                    if ($m == null)
+                        throw new ConfigurationException('Не правильно задан модуль'.$page['route']);
 
                     /** @var \yii\base\Controller $controller */
                     //$controller = $m->createController($m->defaultRoute);
                     //echo $controller[0]->runAction($controller[0]->defaultAction);
 
                     $rules = [];
-                    foreach ($m->urlRules as $pattern=>$route)
-                    {
+                    foreach ($m->urlRules as $pattern => $route) {
                         $rules[] = [
-                            'pattern'=>$pattern,
-                            'route'=>$route,
-                            'defaults'=>['test'=>'fdsfsdfds']
+                            'pattern' => $pattern,
+                            'route' => $route,
+                            'defaults'=>['fdsfs'=>'fdsfhdsfjds']
                         ];
                     }
 
 
                     $configUrlRule = [
-                        'prefix' => '/' . $page['full_slug'],
-                        'rules'  => $m->urlRules,
-                        'routePrefix'=>'/m_portfolio'
+                        'prefix' => $page['full_slug'],
+                        //'prefix' => '',
+                        'rules' => $m->urlRules,
+                        'routePrefix' => $module_id,
+                        //'page_slug'=>$page['full_slug']
                     ];
 
-                    $configUrlRule['class'] = GroupUrlRule::className();
+                    $configUrlRule['class'] = \seiweb\inlinecontent\components\GroupUrlRule::className();
                     $rule = \Yii::createObject($configUrlRule);
 
-                    $app->urlManager->addRules([$rule], false);
+                    $app->urlManager->addRules([$rule], true);
+
                     continue;
                 }
+
+
                 $app->urlManager->rules[] = new UrlRule([
                     'pattern' => '/' . $page['full_slug'],
                     'route' => 'inlinecontent/frontend/view',
