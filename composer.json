@@ -2,7 +2,6 @@
     "name": "seiweb/yii2-inlinecontent",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
-
     "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "*",
